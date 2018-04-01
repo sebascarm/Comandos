@@ -3,7 +3,7 @@
     Public Sub Main()
 
         C_PROCESO.CargarArray()
-        C_PROCESO.CargarGrid(Form1.GridProc)
+        C_PROCESO.CargarGrid(FormComandos.GridProc)
 
     End Sub
 End Module

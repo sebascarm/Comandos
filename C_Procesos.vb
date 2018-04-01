@@ -6,7 +6,6 @@
     End Structure
     'Array de Procesos
     Dim ArrProcesos() As SProc
-
     Public Sub CargarArray()
         Dim Proc As Process
         Dim Elem As Integer = 0
@@ -14,7 +13,6 @@
         For Each Proc In Process.GetProcesses()
             If Not Proc Is Nothing Then
                 ReDim Preserve ArrProcesos(Elem + 1)
-
                 ArrProcesos(Elem).Id = Proc.Id
                 ArrProcesos(Elem).Proc = Proc.ProcessName
                 ArrProcesos(Elem).Nombre = Proc.MainWindowTitle
@@ -24,6 +22,7 @@
     End Sub
     Public Sub CargarGrid(Grid As DataGridView)
         Dim Fila As Integer = 0
+        Grid.Rows.Clear()
         Grid.Rows.Add(ArrProcesos.Length - 1)
         For Each Proceso In ArrProcesos
             Grid(0, Fila).Value = ArrProcesos(Fila).Id

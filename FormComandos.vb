@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class FormComandos
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call Main()
     End Sub
@@ -31,5 +31,9 @@
     Private Sub B_CargarProcesos_Click(sender As Object, e As EventArgs) Handles B_CargarProcesos.Click
         C_PROCESO.CargarArray()
         C_PROCESO.CargarGrid(GridProc)
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
     End Sub
 End Class
