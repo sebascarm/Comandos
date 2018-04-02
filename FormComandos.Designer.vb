@@ -33,8 +33,8 @@ Partial Class FormComandos
         Me.T_Ejecutar = New System.Windows.Forms.TextBox()
         Me.Bot_Ejecutar = New System.Windows.Forms.Button()
         Me.Bot_Escuchar = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TePuerto = New System.Windows.Forms.TextBox()
+        Me.TeIP = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.GridProc, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,21 +145,21 @@ Partial Class FormComandos
         Me.Bot_Escuchar.Text = "Escuchar"
         Me.Bot_Escuchar.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'TePuerto
         '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(406, 64)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(93, 20)
-        Me.TextBox1.TabIndex = 23
+        Me.TePuerto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TePuerto.Location = New System.Drawing.Point(406, 64)
+        Me.TePuerto.Name = "TePuerto"
+        Me.TePuerto.Size = New System.Drawing.Size(93, 20)
+        Me.TePuerto.TabIndex = 23
         '
-        'TextBox2
+        'TeIP
         '
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox2.Location = New System.Drawing.Point(158, 64)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(242, 20)
-        Me.TextBox2.TabIndex = 24
+        Me.TeIP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TeIP.Location = New System.Drawing.Point(158, 64)
+        Me.TeIP.Name = "TeIP"
+        Me.TeIP.Size = New System.Drawing.Size(242, 20)
+        Me.TeIP.TabIndex = 24
         '
         'Label1
         '
@@ -189,8 +189,8 @@ Partial Class FormComandos
         Me.ClientSize = New System.Drawing.Size(635, 524)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.TeIP)
+        Me.Controls.Add(Me.TePuerto)
         Me.Controls.Add(Me.Bot_Escuchar)
         Me.Controls.Add(Me.Bot_Ejecutar)
         Me.Controls.Add(Me.T_Ejecutar)
@@ -217,8 +217,8 @@ Partial Class FormComandos
     Friend WithEvents T_Ejecutar As TextBox
     Friend WithEvents Bot_Ejecutar As Button
     Friend WithEvents Bot_Escuchar As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TePuerto As TextBox
+    Friend WithEvents TeIP As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
 End Class

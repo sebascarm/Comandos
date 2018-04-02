@@ -72,7 +72,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C_Conexion.vb" />
+    <Compile Include="C_PaqueteDatos.vb" />
     <Compile Include="C_Procesos.vb" />
+    <Compile Include="C_Textos.vb" />
     <Compile Include="FormComandos.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +122,15 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ClaseSocket\ClaseSocket.vbproj">
+      <Project>{45e0e208-1622-4818-97b5-a83f392aa02f}</Project>
+      <Name>ClaseSocket</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Detalles.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
