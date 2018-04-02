@@ -13,9 +13,31 @@
 
     End Function
 
-    Private Function ControlLongitud(Paquete As String) As Integer
-        Dim Longitud As Integer = Paquete.Length
+    Private Sub ControlLongitud(Paquete As String)
+        Dim Resultado As Boolean = False
+        Dim LongitudPaquete As Integer = Paquete.Length
+        Dim T_LongitudControl As String
+        Dim LongitudControl As Integer
+        T_LongitudControl = C_Textos.BuscarTexto(Paquete, ">(", ")", 0, 5)
+        If T_LongitudControl <> "" Then
+            If IsNumeric(T_LongitudControl) Then ' control si es numero
+                LongitudControl = CInt(T_LongitudControl)
+                If LongitudControl = LongitudPaquete Then
+                    'longitud correcta
 
+                End If
 
-    End Function
+                Return LongitudControl
+            Else
+                'logitud incorrecta
+                Resultado = False
+                Return Resultado
+            End If
+        Else
+            'logitud incorrecta
+            Resultado = False
+            Return Resultado
+        End If
+
+    End Sub
 End Class
