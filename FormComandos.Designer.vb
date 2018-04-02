@@ -23,13 +23,13 @@ Partial Class FormComandos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GridProc = New System.Windows.Forms.DataGridView()
+        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Proceso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Bot_Env_Key = New System.Windows.Forms.Button()
         Me.T_Enviar = New System.Windows.Forms.TextBox()
         Me.T_ID = New System.Windows.Forms.TextBox()
         Me.B_CargarProcesos = New System.Windows.Forms.Button()
-        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Proceso = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.T_Ejecutar = New System.Windows.Forms.TextBox()
         Me.Bot_Ejecutar = New System.Windows.Forms.Button()
         Me.Bot_Escuchar = New System.Windows.Forms.Button()
@@ -47,50 +47,12 @@ Partial Class FormComandos
         Me.GridProc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.GridProc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.GridProc.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Proceso, Me.Nombre})
-        Me.GridProc.Location = New System.Drawing.Point(12, 118)
+        Me.GridProc.Location = New System.Drawing.Point(12, 145)
         Me.GridProc.Name = "GridProc"
         Me.GridProc.ReadOnly = True
         Me.GridProc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.GridProc.Size = New System.Drawing.Size(611, 367)
         Me.GridProc.TabIndex = 0
-        '
-        'Bot_Env_Key
-        '
-        Me.Bot_Env_Key.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Bot_Env_Key.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Bot_Env_Key.Location = New System.Drawing.Point(505, 91)
-        Me.Bot_Env_Key.Name = "Bot_Env_Key"
-        Me.Bot_Env_Key.Size = New System.Drawing.Size(118, 21)
-        Me.Bot_Env_Key.TabIndex = 17
-        Me.Bot_Env_Key.Text = "Enviar a Proceso"
-        Me.Bot_Env_Key.UseVisualStyleBackColor = True
-        '
-        'T_Enviar
-        '
-        Me.T_Enviar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.T_Enviar.Location = New System.Drawing.Point(158, 91)
-        Me.T_Enviar.Name = "T_Enviar"
-        Me.T_Enviar.Size = New System.Drawing.Size(341, 20)
-        Me.T_Enviar.TabIndex = 16
-        '
-        'T_ID
-        '
-        Me.T_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.T_ID.Location = New System.Drawing.Point(12, 91)
-        Me.T_ID.Name = "T_ID"
-        Me.T_ID.Size = New System.Drawing.Size(140, 20)
-        Me.T_ID.TabIndex = 18
-        '
-        'B_CargarProcesos
-        '
-        Me.B_CargarProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.B_CargarProcesos.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.B_CargarProcesos.Location = New System.Drawing.Point(12, 63)
-        Me.B_CargarProcesos.Name = "B_CargarProcesos"
-        Me.B_CargarProcesos.Size = New System.Drawing.Size(140, 21)
-        Me.B_CargarProcesos.TabIndex = 19
-        Me.B_CargarProcesos.Text = "Cargar Procesos"
-        Me.B_CargarProcesos.UseVisualStyleBackColor = True
         '
         'Id
         '
@@ -115,10 +77,48 @@ Partial Class FormComandos
         Me.Nombre.ReadOnly = True
         Me.Nombre.Width = 300
         '
+        'Bot_Env_Key
+        '
+        Me.Bot_Env_Key.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Bot_Env_Key.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Bot_Env_Key.Location = New System.Drawing.Point(505, 116)
+        Me.Bot_Env_Key.Name = "Bot_Env_Key"
+        Me.Bot_Env_Key.Size = New System.Drawing.Size(118, 21)
+        Me.Bot_Env_Key.TabIndex = 17
+        Me.Bot_Env_Key.Text = "Enviar a Proceso"
+        Me.Bot_Env_Key.UseVisualStyleBackColor = True
+        '
+        'T_Enviar
+        '
+        Me.T_Enviar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.T_Enviar.Location = New System.Drawing.Point(158, 116)
+        Me.T_Enviar.Name = "T_Enviar"
+        Me.T_Enviar.Size = New System.Drawing.Size(341, 20)
+        Me.T_Enviar.TabIndex = 16
+        '
+        'T_ID
+        '
+        Me.T_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.T_ID.Location = New System.Drawing.Point(12, 116)
+        Me.T_ID.Name = "T_ID"
+        Me.T_ID.Size = New System.Drawing.Size(140, 20)
+        Me.T_ID.TabIndex = 18
+        '
+        'B_CargarProcesos
+        '
+        Me.B_CargarProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.B_CargarProcesos.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.B_CargarProcesos.Location = New System.Drawing.Point(12, 88)
+        Me.B_CargarProcesos.Name = "B_CargarProcesos"
+        Me.B_CargarProcesos.Size = New System.Drawing.Size(140, 21)
+        Me.B_CargarProcesos.TabIndex = 19
+        Me.B_CargarProcesos.Text = "Cargar Procesos"
+        Me.B_CargarProcesos.UseVisualStyleBackColor = True
+        '
         'T_Ejecutar
         '
         Me.T_Ejecutar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.T_Ejecutar.Location = New System.Drawing.Point(158, 65)
+        Me.T_Ejecutar.Location = New System.Drawing.Point(158, 90)
         Me.T_Ejecutar.Name = "T_Ejecutar"
         Me.T_Ejecutar.Size = New System.Drawing.Size(341, 20)
         Me.T_Ejecutar.TabIndex = 20
@@ -127,7 +127,7 @@ Partial Class FormComandos
         '
         Me.Bot_Ejecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Bot_Ejecutar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Bot_Ejecutar.Location = New System.Drawing.Point(505, 63)
+        Me.Bot_Ejecutar.Location = New System.Drawing.Point(505, 88)
         Me.Bot_Ejecutar.Name = "Bot_Ejecutar"
         Me.Bot_Ejecutar.Size = New System.Drawing.Size(118, 21)
         Me.Bot_Ejecutar.TabIndex = 21
@@ -138,7 +138,7 @@ Partial Class FormComandos
         '
         Me.Bot_Escuchar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Bot_Escuchar.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Bot_Escuchar.Location = New System.Drawing.Point(505, 36)
+        Me.Bot_Escuchar.Location = New System.Drawing.Point(505, 61)
         Me.Bot_Escuchar.Name = "Bot_Escuchar"
         Me.Bot_Escuchar.Size = New System.Drawing.Size(118, 21)
         Me.Bot_Escuchar.TabIndex = 22
@@ -148,7 +148,7 @@ Partial Class FormComandos
         'TextBox1
         '
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(406, 39)
+        Me.TextBox1.Location = New System.Drawing.Point(406, 64)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(93, 20)
         Me.TextBox1.TabIndex = 23
@@ -156,7 +156,7 @@ Partial Class FormComandos
         'TextBox2
         '
         Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox2.Location = New System.Drawing.Point(158, 39)
+        Me.TextBox2.Location = New System.Drawing.Point(158, 64)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(242, 20)
         Me.TextBox2.TabIndex = 24
@@ -165,7 +165,7 @@ Partial Class FormComandos
         '
         Me.Label1.AutoSize = True
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(407, 20)
+        Me.Label1.Location = New System.Drawing.Point(403, 48)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 25
@@ -175,7 +175,7 @@ Partial Class FormComandos
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(155, 23)
+        Me.Label2.Location = New System.Drawing.Point(155, 48)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 26
@@ -186,7 +186,7 @@ Partial Class FormComandos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(635, 495)
+        Me.ClientSize = New System.Drawing.Size(635, 524)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox2)
