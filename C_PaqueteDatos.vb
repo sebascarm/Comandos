@@ -13,7 +13,7 @@
 
     End Function
 
-    Private Sub ControlLongitud(Paquete As String)
+    Private Function ControlLongitud(Paquete As String) As Boolean
         Dim Resultado As Boolean = False
         Dim LongitudPaquete As Integer = Paquete.Length
         Dim T_LongitudControl As String
@@ -24,20 +24,19 @@
                 LongitudControl = CInt(T_LongitudControl)
                 If LongitudControl = LongitudPaquete Then
                     'longitud correcta
-
+                    Est_Paquete.Longitud = LongitudControl
+                    Return True
+                Else
+                    'longitud incorrecta
+                    Return False
                 End If
-
-                Return LongitudControl
             Else
-                'logitud incorrecta
-                Resultado = False
-                Return Resultado
+                'logitud no es numerica
+                Return False
             End If
         Else
-            'logitud incorrecta
-            Resultado = False
-            Return Resultado
+            'logitud incorrecta devuelto vacio
+            Return False
         End If
-
-    End Sub
+    End Function
 End Class
