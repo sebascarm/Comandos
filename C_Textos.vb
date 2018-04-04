@@ -1,7 +1,19 @@
 ﻿Public Class C_Textos
     Public Shared Mensaje As String
+    Public Shared Function ExtraerNumero(Paquete As String, Inicio As String, Final As String, Optional PosInicio As Integer = -1, Optional PosFin As Integer = -1) As Integer
+        Dim ValorTexto As String
+        Dim Resultado As Integer = -1
+        ValorTexto = ExtraerTexto(Paquete, Inicio, Final, PosInicio, PosFin)
+        If ValorTexto <> "" Then
+            If IsNumeric(ValorTexto) Then
+                Resultado = CInt(ValorTexto)
+                Return Resultado
+            End If
+        End If
+        Return Resultado
+    End Function
     'CLASE SHARED - NO REQUIERE INSTANCIAR PARA USAR LOS METODOS
-    Public Shared Function BuscarTexto(Paquete As String, Inicio As String, Final As String, Optional PosInicio As Integer = -1, Optional PosFin As Integer = -1) As String
+    Public Shared Function ExtraerTexto(Paquete As String, Inicio As String, Final As String, Optional PosInicio As Integer = -1, Optional PosFin As Integer = -1) As String
         Dim Ini As Integer
         Dim Fin As Integer
         Dim IniTexto As Integer

@@ -9,34 +9,25 @@
     Dim Est_Paquete As S_Paquete
     Public Function Control(Paquete As String) As Integer
         _Paquete = Paquete
-
-
+        Est_Paquete.Longitud = ExtraerLongitud(Paquete)
+        Est_Paquete.Secuencia = ExtraerSecuencia(Paquete)
     End Function
-
-    Private Function ControlLongitud(Paquete As String) As Boolean
-        Dim Resultado As Boolean = False
+    Private Function ExtraerLongitud(Paquete As String) As Integer
         Dim LongitudPaquete As Integer = Paquete.Length
-        Dim T_LongitudControl As String
-        Dim LongitudControl As Integer
-        T_LongitudControl = C_Textos.BuscarTexto(Paquete, ">(", ")", 0, 5)
-        If T_LongitudControl <> "" Then
-            If IsNumeric(T_LongitudControl) Then ' control si es numero
-                LongitudControl = CInt(T_LongitudControl)
-                If LongitudControl = LongitudPaquete Then
-                    'longitud correcta
-                    Est_Paquete.Longitud = LongitudControl
-                    Return True
-                Else
-                    'longitud incorrecta
-                    Return False
-                End If
-            Else
-                'logitud no es numerica
-                Return False
+        Dim Longitud As Integer
+        Dim Resultado As Integer = -1
+        Longitud = C_Textos.ExtraerNumero(Paquete, ">(", ")", 0, 5)
+        If Longitud > -1 Then
+            If Longitud = LongitudPaquete Then
+                Resultado = Longitud
             End If
-        Else
-            'logitud incorrecta devuelto vacio
-            Return False
         End If
+        Return Resultado
     End Function
+    Private Function ExtraerSecuencia(Paquete As String) As Integer
+        Dim Resultado As Integer
+        Resultado = C_Textos.ExtraerNumero(Paquete, "[", "]", 6, 9)
+        Return Resultado
+    End Function
+
 End Class
