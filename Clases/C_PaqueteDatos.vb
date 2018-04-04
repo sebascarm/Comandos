@@ -37,6 +37,7 @@
             End If
         End If
     End Function
+
     Private Function ExtraerSecuencia(Paquete As String) As Integer
         Dim Resultado As Integer
         Resultado = C_Textos.ExtraerNumero(Paquete, "[", "]", 6, 9)

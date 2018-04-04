@@ -72,14 +72,15 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C_Conexion.vb" />
-    <Compile Include="C_PaqueteDatos.vb" />
-    <Compile Include="C_Procesos.vb" />
-    <Compile Include="C_Textos.vb" />
-    <Compile Include="FormComandos.vb">
+    <Compile Include="Clases\C_Conexion.vb" />
+    <Compile Include="Clases\C_PaqueteDatos.vb" />
+    <Compile Include="Clases\C_Procesos.vb" />
+    <Compile Include="Clases\C_Textos.vb" />
+    <Compile Include="Clases\C_Ejecutar.vb" />
+    <Compile Include="Formularios\FormComandos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormComandos.Designer.vb">
+    <Compile Include="Formularios\FormComandos.Designer.vb">
       <DependentUpon>FormComandos.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -101,7 +102,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormComandos.resx">
+    <EmbeddedResource Include="Formularios\FormComandos.resx">
       <DependentUpon>FormComandos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

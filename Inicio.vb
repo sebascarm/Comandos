@@ -7,6 +7,10 @@ Module Inicio
 
         C_PROCESO.CargarArray()
         C_PROCESO.CargarGrid(FormComandos.GridProc)
-        C_PAQUETE.Control(">(001)[01](COMANDO)EXECUTE CALC.EXE<")
+        'C_Ejecutar.Ejecutar("calc.exe")
+        Dim seba = C_Ejecutar.EjecutarResul("DaIR")
+        MsgBox(seba)
+
+        'C_PAQUETE.Control(">(001)[01](COMANDO)EXECUTE CALC.EXE<")
     End Sub
 End Module
