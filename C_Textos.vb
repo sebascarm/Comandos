@@ -1,5 +1,5 @@
 ﻿Public Class C_Textos
-    Public Shared Mensaje As String
+    Public Shared MensajeError As String
     Public Shared Function ExtraerNumero(Paquete As String, Inicio As String, Final As String, Optional PosInicio As Integer = -1, Optional PosFin As Integer = -1) As Integer
         Dim ValorTexto As String
         Dim Resultado As Integer = -1
@@ -7,6 +7,9 @@
         If ValorTexto <> "" Then
             If IsNumeric(ValorTexto) Then
                 Resultado = CInt(ValorTexto)
+                Return Resultado
+            Else
+                MensajeError = "Extraer Numero: No Numerico"
                 Return Resultado
             End If
         End If
@@ -22,16 +25,16 @@
         Ini = Paquete.IndexOf(Inicio) 'obtenemos el inicio que debe ser 0 // -1 es no encontrado, otro valor seria desfazado
         If Ini > -1 Then 'inicio encontrado
             If (PosInicio > -1) And (PosInicio <> Ini) Then 'inicio especifico declarado no encontrado
-                Mensaje = "Inicio desfazado"
+                MensajeError = "Inicio desfazado"
                 Resultado = ""
                 Return Resultado
                 'Exit Function
             End If
             'inicio encontrado, pos inicial no declarada o en la posicion especificada. buscamos el final
-            Fin = Paquete.IndexOf(Final, Ini) 'revisar cuando el final aparece antes del incio
+            Fin = Paquete.IndexOf(Final, Ini + 1) 'revisar cuando el final aparece antes del incio
             If Fin > -1 Then 'final encontrado
                 If (PosFin > -1) And (PosFin <> Fin) Then 'fin especifico declarado no encontrado
-                    Mensaje = "Final desfazado"
+                    MensajeError = "Final desfazado"
                     Resultado = ""
                     Return Resultado
                     'Exit Function
@@ -43,13 +46,13 @@
                 Return Resultado
             Else
                 'Final no encontrado
-                Mensaje = "Final no encontrado"
+                MensajeError = "Final no encontrado"
                 Resultado = ""
                 Return Resultado
             End If
         Else
             'Inicio no encontrado
-            Mensaje = "Inicio no encontrado"
+            MensajeError = "Inicio no encontrado"
             Resultado = ""
             Return Resultado
         End If
