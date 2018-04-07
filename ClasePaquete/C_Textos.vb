@@ -10,6 +10,7 @@
                 Resultado = CInt(ValorTexto)
                 Return Resultado
             Else
+                '
                 MensajeError = "Extraer Numero: No Numerico"
                 Return Resultado
             End If
