@@ -73,9 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\C_Conexion.vb" />
-    <Compile Include="Clases\C_PaqueteDatos.vb" />
     <Compile Include="Clases\C_Procesos.vb" />
-    <Compile Include="Clases\C_Textos.vb" />
     <Compile Include="Clases\C_Ejecutar.vb" />
     <Compile Include="Formularios\FormComandos.vb">
       <SubType>Form</SubType>
@@ -126,13 +124,14 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="ClasePaquete\ClasePaquete.vbproj">
+      <Project>{f7678d09-d45d-4cb7-a705-dc9209d8c2e4}</Project>
+      <Name>ClasePaquete</Name>
+    </ProjectReference>
     <ProjectReference Include="ClaseSocket\ClaseSocket.vbproj">
       <Project>{45e0e208-1622-4818-97b5-a83f392aa02f}</Project>
       <Name>ClaseSocket</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Detalles.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
