@@ -22,8 +22,11 @@ Public Class C_Conexion
         Me.Estado = Estado
     End Sub
     Private Sub Recepcion(ByVal Datos As String)
-        If Paquete.Cargar(Datos) Then
-
+        If Paquete.Cargar(Datos) Then 'control de carga
+            Select Case Paquete.Est_Paquete.TipoDato
+                Case "COMANDO"
+                    C_Ejecutar.Ejecutar(Paquete.Est_Paquete.PaqueteDatos)
+            End Select
         Else
             Debug.Print(Paquete.Est_Paquete.MensajeError)
         End If

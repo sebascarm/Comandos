@@ -3,18 +3,17 @@
     Dim _SecuenciaRec As Integer = 0
     Dim _SecuenciaEnv As Integer = 0
     Dim _ComandosValidos() As String = {"COMANDO", "COMANDO_RET", "VALOR", "LOG", "LOGCOLOR", "ARCHIVO", "OBJETO", "GENERAL"}
-    Structure S_Paquete
-        Dim Longitud As Integer
-        Dim Secuencia As Integer
-        Dim TipoDato As String
-        Dim PaqueteDatos As String
-        Dim Paquete_Part1 As String 'se usa en caso de comandos compuestos
-        Dim Paquete_Part2 As String 'se usa en caso de comandos compuestos
-        Dim Paquete_Part3 As String 'se usa en caso de comandos compuestos
-        Dim Paquete_Part4 As String 'se usa en caso de comandos compuestos
-        Dim MensajeError As String
-    End Structure
-    Public Est_Paquete As S_Paquete
+
+    Public Longitud As Integer
+    Public Secuencia As Integer
+    Public TipoDato As String
+    Public PaqueteDatos As String
+    Public Paquete_Part1 As String 'se usa en caso de comandos compuestos
+    Public Paquete_Part2 As String 'se usa en caso de comandos compuestos
+    Public Paquete_Part3 As String 'se usa en caso de comandos compuestos
+    Public Paquete_Part4 As String 'se usa en caso de comandos compuestos
+    Public MensajeError As String
+
     Public Function ArmarPaquete(TipoDato As String, PaqueteDato As String) As String
         Dim L_Longitud As Integer
         Dim LongTexto As String
@@ -33,7 +32,7 @@
         Next
         'si el tipo esta permitido continuamos
         If TipoPermitido = False Then
-            Est_Paquete.MensajeError = "El tipo de dato no esta permitido: " & TipoDato
+            Me.MensajeError = "El tipo de dato no esta permitido: " & TipoDato
             Return PaqueteFinal
         Else
             SecTexto = C_Textos.NumeroaTexto(_SecuenciaEnv, 2)
@@ -52,29 +51,29 @@
     Public Function Cargar(Paquete As String) As Boolean
         _Paquete = Paquete
         'Extraer y controla la longitud
-        Est_Paquete.Longitud = ControlLongitud(Paquete)
-        If Est_Paquete.Longitud = -1 Then
+        Me.Longitud = ControlLongitud(Paquete)
+        If Me.Longitud = -1 Then
             'Debug.Print(Est_Paquete.MensajeError)
             Return False
         Else
             'Longitud correcta
             'Extraer y controlar secuencia
-            Est_Paquete.Secuencia = ControlSecuencia(Paquete)
-            If Est_Paquete.Secuencia = -1 Then
+            Me.Secuencia = ControlSecuencia(Paquete)
+            If Me.Secuencia = -1 Then
                 'Debug.Print(Est_Paquete.MensajeError)
                 Return False
             Else
                 'Secuencia correcta
                 'Extraer y controlar el tipo de datos
-                Est_Paquete.TipoDato = ControlTipoDato(Paquete)
-                If Est_Paquete.TipoDato = "" Then
+                Me.TipoDato = ControlTipoDato(Paquete)
+                If Me.TipoDato = "" Then
                     'Debug.Print(Est_Paquete.MensajeError)
                     Return False
                 Else
                     'Tipo de dato correcto
                     'extraer el paquete de datos
-                    Est_Paquete.PaqueteDatos = ControlPaqueteDato(Paquete, Est_Paquete.TipoDato)
-                    If Est_Paquete.PaqueteDatos = "" Then
+                    Me.PaqueteDatos = ControlPaqueteDato(Paquete, Me.TipoDato)
+                    If Me.PaqueteDatos = "" Then
                         'Debug.Print(Est_Paquete.MensajeError)
                         Return False
                     Else
@@ -92,12 +91,12 @@
         Longitud = C_Textos.ExtraerNumero(Paquete, ">(", ")", 0, 5)
         If Longitud = -1 Then
             'revisamos algun error en la extraccion de la longitud
-            Est_Paquete.MensajeError = "Logitud: " & C_Textos.MensajeError
+            Me.MensajeError = "Logitud: " & C_Textos.MensajeError
             Return Resultado
         Else
             'revisamos que la longitud coincida
             If Longitud <> LongitudPaquete Then
-                Est_Paquete.MensajeError = "Longitud de paquete incorrecta"
+                Me.MensajeError = "Longitud de paquete incorrecta"
                 Return Resultado
             Else
                 'longitud correcta
@@ -112,7 +111,7 @@
         TipoDato = C_Textos.ExtraerTexto(Paquete, "(", ")", 10)
         If TipoDato = "" Then
             'revisamos algun error en la extraccion de la longitud
-            Est_Paquete.MensajeError = "Tipo de dato: " & C_Textos.MensajeError
+            Me.MensajeError = "Tipo de dato: " & C_Textos.MensajeError
             Return Resultado
         Else
             'revisamos que el tipo de datos sea un tipo permitio
@@ -124,7 +123,7 @@
                 End If
             Next
             ' no se encontro en los tipos de dato permitido
-            Est_Paquete.MensajeError = "Tipo de dato no permitido: " & TipoDato
+            Me.MensajeError = "Tipo de dato no permitido: " & TipoDato
             Return Resultado
         End If
     End Function
@@ -134,12 +133,12 @@
         Secuencia = C_Textos.ExtraerNumero(Paquete, "[", "]", 6, 9)
         If Secuencia = -1 Then
             'revisamos algun error en la extraccion de la longitud
-            Est_Paquete.MensajeError = "Secuencia: " & C_Textos.MensajeError
+            Me.MensajeError = "Secuencia: " & C_Textos.MensajeError
             Return Resultado
         Else
             'revisamos que la secuencia coincida
             If Secuencia <> _SecuenciaRec Then
-                Est_Paquete.MensajeError = "Secuencia de paquete incorrecta"
+                Me.MensajeError = "Secuencia de paquete incorrecta"
                 Return Resultado
             Else
                 'secuencia correcta
@@ -156,11 +155,11 @@
         Dim PaqueteDato As String
         Dim Resultado As String = ""
         Dim Inicio As Integer
-        Inicio = 11 + Est_Paquete.TipoDato.Length '11 es la longitud fija 
+        Inicio = 11 + Me.TipoDato.Length '11 es la longitud fija 
         PaqueteDato = C_Textos.ExtraerTexto(Paquete, ")", "<", Inicio)
         If PaqueteDato = "" Then
             'revisamos algun error en la extraccion de la longitud
-            Est_Paquete.MensajeError = "Paquete de datos: " & C_Textos.MensajeError
+            Me.MensajeError = "Paquete de datos: " & C_Textos.MensajeError
             Return Resultado
         Else
             'Controlamos segun tipo de dato LOS QUE SON ESPECIALES
@@ -172,19 +171,19 @@
                     Parametro = C_Textos.ExtraerTexto(Paquete, ")", "=", 11)
                     If Parametro = "" Then
                         'revisamos algun error en la extraccion del parametro
-                        Est_Paquete.MensajeError = "Parametro: " & C_Textos.MensajeError
+                        Me.MensajeError = "Parametro: " & C_Textos.MensajeError
                         Return Resultado
                     Else
                         'parametro correcto
                         Valor = C_Textos.ExtraerTexto(Paquete, "=", "<", 12)
                         If Valor = "" Then
-                            Est_Paquete.MensajeError = "Valor: " & C_Textos.MensajeError
+                            Me.MensajeError = "Valor: " & C_Textos.MensajeError
                             Return Resultado
                         End If
                         'por lo visto esta correcto almacenamos los valores y el resultado del paquete
                         Resultado = PaqueteDato
-                        Est_Paquete.Paquete_Part1 = Parametro
-                        Est_Paquete.Paquete_Part2 = Valor
+                        Me.Paquete_Part1 = Parametro
+                        Me.Paquete_Part2 = Valor
                         Return Resultado
                     End If
 
@@ -197,7 +196,7 @@
                     'El texto 1 es obligatorio, los demas no
                     Texto1 = C_Textos.ExtraerTexto(PaqueteDato, "'", "'", 0)
                     If Texto1 = "" Then
-                        Est_Paquete.MensajeError = "Log Color: " & C_Textos.MensajeError
+                        Me.MensajeError = "Log Color: " & C_Textos.MensajeError
                         Return Resultado
                     Else
                         Inicio = Texto1.Length
@@ -209,10 +208,10 @@
                         'revisar como funciono hasta aca
                         'devolver los valores
                         Resultado = PaqueteDato
-                        Est_Paquete.Paquete_Part1 = Texto1
-                        Est_Paquete.Paquete_Part2 = Color1
-                        Est_Paquete.Paquete_Part3 = Texto2
-                        Est_Paquete.Paquete_Part4 = Color2
+                        Me.Paquete_Part1 = Texto1
+                        Me.Paquete_Part2 = Color1
+                        Me.Paquete_Part3 = Texto2
+                        Me.Paquete_Part4 = Color2
                         Return Resultado
                     End If
                 Case "ARCHIVO", "OBJETO" 'son identicos
@@ -222,20 +221,20 @@
                     Nombre = C_Textos.ExtraerTexto(PaqueteDato, "'", "'", 0) 'revisar q funcione
                     If Nombre = "" Then
                         'revisamos algun error en la extraccion del parametro
-                        Est_Paquete.MensajeError = "Archivo/Objeto: " & C_Textos.MensajeError
+                        Me.MensajeError = "Archivo/Objeto: " & C_Textos.MensajeError
                         Return Resultado
                     Else
                         'nombre correcto, buscar los datos
                         Inicio = Nombre.Length
                         ParteB = C_Textos.ExtraerTexto(PaqueteDato, "'", "'", Inicio)
                         If ParteB = "" Then
-                            Est_Paquete.MensajeError = "Datos/Evento: " & C_Textos.MensajeError
+                            Me.MensajeError = "Datos/Evento: " & C_Textos.MensajeError
                             Return Resultado
                         End If
                         'por lo visto esta correcto almacenamos los valores y el resultado del paquete
                         Resultado = PaqueteDato
-                        Est_Paquete.Paquete_Part1 = Nombre
-                        Est_Paquete.Paquete_Part2 = ParteB
+                        Me.Paquete_Part1 = Nombre
+                        Me.Paquete_Part2 = ParteB
                         Return Resultado
                     End If
                 Case Else
